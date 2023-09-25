@@ -1,10 +1,8 @@
 # for pip install openai whisper: pip install git+https://github.com/openai/whisper.git
-# might need blobfile
 
 from fastapi import FastAPI, HTTPException, UploadFile
 from request_and_response import Response
 import whisper
-
 import tempfile
 import shutil
 import os
