@@ -1,14 +1,13 @@
 import whisper
+import numpy as np
 
-model = whisper.load_model("medium")
+model = whisper.load_model("tiny")
 
-def transcribe_audiofile(audio_file):
+async def transcribe_audiofile(audio):
 
-    result = model.transcribe(audio_file, language="sv", fp16=False, verbose=True)
+    #audio_array = np.frombuffer(audio_data, dtype=np.int32)
+
+    result = await model.transcribe(audio, language="sv", fp16=False, verbose=True)
     result_text = result["text"]
-
-    #with open("output.txt", "w", encoding="utf-8") as f:
-    #    f.write(result_text)
-    #    f.close()
 
     return result_text
